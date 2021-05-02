@@ -38,5 +38,8 @@ This is a MERN stack application that allows the user to login/sign up to their 
 ### Offline View
 ![image](https://user-images.githubusercontent.com/71858457/112768427-5021ce00-8fd9-11eb-9ded-60fb1e8955de.png)
 
-### Back Online View
-![image](https://user-images.githubusercontent.com/71858457/112768432-53b55500-8fd9-11eb-964b-4dfc2d59239b.png)
+### iPhone 6/7/8 Plus View
+![image](https://user-images.githubusercontent.com/71858457/116818797-6f58d180-ab2a-11eb-86fc-79315acebfa9.png)
+
+### iPad View
+![image](https://user-images.githubusercontent.com/71858457/116818817-826ba180-ab2a-11eb-8295-93352cadc9ed.png)
