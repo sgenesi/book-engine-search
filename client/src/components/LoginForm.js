@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from '../utils/auth';
 import { LOGIN_USER } from '../utils/mutations';
-import { userMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 
 const LoginForm = () => {
-  const [login] = userMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
