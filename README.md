@@ -20,7 +20,7 @@ This is a MERN stack application that allows the user to login/sign up to their 
 ---
 
 ## Links
-* Deployed Application: https://https://agile-plateau-82427.herokuapp.com/
+* Deployed Application: https://agile-plateau-82427.herokuapp.com/
 * GitHub Repo: https://github.com/sgenesi/book-engine-search
 ---
 
@@ -34,9 +34,6 @@ This is a MERN stack application that allows the user to login/sign up to their 
 
 ### Desktop Search Results
 ![image](https://user-images.githubusercontent.com/71858457/116818745-33257100-ab2a-11eb-9727-15fa7be9a7c7.png)
-
-### Offline View
-![image](https://user-images.githubusercontent.com/71858457/112768427-5021ce00-8fd9-11eb-9ded-60fb1e8955de.png)
 
 ### iPhone 6/7/8 Plus View
 ![image](https://user-images.githubusercontent.com/71858457/116818797-6f58d180-ab2a-11eb-86fc-79315acebfa9.png)
