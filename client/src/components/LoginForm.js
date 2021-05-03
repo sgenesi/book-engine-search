@@ -1,15 +1,24 @@
 // see SignupForm.js for comments
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-import Auth from '../utils/auth';
-import { LOGIN_USER } from '../utils/mutations';
+
 import { useMutation } from '@apollo/react-hooks';
+import { LOGIN_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const LoginForm = () => {
-  const [login] = useMutation(LOGIN_USER);
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  useEffect(() => {
+    if (error) {
+      setShowAlert(true);
+    } else {
+      setShowAlert(false);
+    }
+  }, [error]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -25,34 +34,20 @@ const LoginForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
+
     try {
       const { data } = await login({
-        variables: { ...userFormData }
+        variables: { ...userFormData },
       });
 
+      console.log(data);
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
-      setShowAlert(true);
     }
 
-    // try {
-    //   const response = await loginUser(userFormData);
-
-    //   if (!response.ok) {
-    //     throw new Error('something went wrong!');
-    //   }
-
-    //   const { token, user } = await response.json();
-    //   console.log(user);
-    //   Auth.login(token);
-    // } catch (err) {
-    //   console.error(err);
-    //   setShowAlert(true);
-    // }
-
+    // clear form values
     setUserFormData({
-      username: '',
       email: '',
       password: '',
     });
@@ -89,10 +84,7 @@ const LoginForm = () => {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
-        <Button
-          disabled={!(userFormData.email && userFormData.password)}
-          type='submit'
-          variant='success'>
+        <Button disabled={!(userFormData.email && userFormData.password)} type='submit' variant='success'>
           Submit
         </Button>
       </Form>
